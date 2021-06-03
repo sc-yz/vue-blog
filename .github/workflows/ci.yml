@@ -19,5 +19,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.DEPLOY_KEY }}
+          PUBLISH_REPOSITORY: sc-yz/sc-yz.github.io
           BRANCH: gh-pages
           FOLDER: dist
