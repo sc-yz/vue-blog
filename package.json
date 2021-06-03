@@ -2,6 +2,7 @@
   "name": "vue-blog",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sc-yz.github.io/vue-blog",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
