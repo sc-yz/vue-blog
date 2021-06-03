@@ -20,5 +20,5 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.DEPLOY_KEY }}
           REPOSITORY_NAME: sc-yz/sc-yz.github.io
-          BRANCH: master
+          BRANCH: main
           FOLDER: dist
