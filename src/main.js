@@ -29,4 +29,4 @@ const apppp = new Vue({
 
 setTimeout(() => {
   apppp.$mount('#app');
-}, 5000);
+}, 1000);
