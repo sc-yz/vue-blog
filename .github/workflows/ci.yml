@@ -20,6 +20,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.DEPLOY_KEY }}
-          REPOSITORY_NAME: sc-yz/sc-yz.github.io
-          BRANCH: main
+          # REPOSITORY_NAME: sc-yz/sc-yz.github.io
+          BRANCH: gl-page
           FOLDER: dist
