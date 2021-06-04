@@ -1,4 +1,4 @@
-importScripts("https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js", "/precache-manifest.eb014ab6164c91f8698dec8664e4d37f.js");
+importScripts("https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js", "/precache-manifest.54869773648570c94609c9d4c2df90fc.js");
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 
