@@ -2,7 +2,7 @@
 
 ## 浏览器
 
-[缓存-ServiceWorker](/post/service-worker)
+[缓存-ServiceWorker](/vue-blog/post/service-worker)
 
 ---
 
