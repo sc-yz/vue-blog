@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5cb93974d49bb3b532f9",
+    "revision": "a3dc3b875bc730c1b329",
     "url": "/vue-blog/css/app.d32076ef.css"
   },
   {
@@ -12,36 +12,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-blog/css/index.d572f15f.css"
   },
   {
-    "revision": "85f027895782a31a5f696e3dfb32a2e0",
+    "revision": "7d077b24926ae38bfd9ad57b32632904",
     "url": "/vue-blog/index.html"
   },
   {
-    "revision": "5cb93974d49bb3b532f9",
-    "url": "/vue-blog/js/app.3bab02b8.js"
+    "revision": "a3dc3b875bc730c1b329",
+    "url": "/vue-blog/js/app.80919949.js"
   },
   {
-    "revision": "b31823ee5c0d1809192b",
-    "url": "/vue-blog/js/chunk-2d0b21a7.4ce186a5.js"
+    "revision": "3377acb46625c2f8617e",
+    "url": "/vue-blog/js/chunk-2d0b21a7.fa7a28a5.js"
   },
   {
-    "revision": "a40cfe0d71b1b4c6d358",
-    "url": "/vue-blog/js/chunk-2d0bac1b.afb7f591.js"
+    "revision": "c84a0096dd6bd2a4141b",
+    "url": "/vue-blog/js/chunk-2d0bac1b.fe3f4767.js"
   },
   {
-    "revision": "5bcf5bcd6e3ce5ce389b",
-    "url": "/vue-blog/js/chunk-2d207375.6f4cd59b.js"
+    "revision": "51c40b7f1d5bd5d7e10e",
+    "url": "/vue-blog/js/chunk-2d207375.e93f30d6.js"
   },
   {
-    "revision": "7ea9845db81c27a361f3",
-    "url": "/vue-blog/js/chunk-2d20f528.59254eaf.js"
+    "revision": "3130824e99f9c43f8809",
+    "url": "/vue-blog/js/chunk-2d20f528.027567e1.js"
   },
   {
-    "revision": "742d089c6ea3bf15f18b",
-    "url": "/vue-blog/js/chunk-2d216461.b845f7e0.js"
+    "revision": "1d14b396ccccb911c148",
+    "url": "/vue-blog/js/chunk-2d216461.633303ac.js"
   },
   {
-    "revision": "4642ffff1899d5190f26",
-    "url": "/vue-blog/js/chunk-2d21dbc7.5b71df64.js"
+    "revision": "38acd3ecf283ab66d1c1",
+    "url": "/vue-blog/js/chunk-2d21dbc7.44b9c9b5.js"
   },
   {
     "revision": "5f511a3cf71d76543de4",
@@ -64,8 +64,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vue-blog/js/post-eslint-prettier.1ef13957.js"
   },
   {
-    "revision": "d6b500f7f5cb05a10f49",
-    "url": "/vue-blog/js/post-frontend-knowledge.5b5acfc2.js"
+    "revision": "6228369b8fd1c189d30c",
+    "url": "/vue-blog/js/post-frontend-knowledge.6ba3f996.js"
   },
   {
     "revision": "c18e27e21c6b382347e4",
