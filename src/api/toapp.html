@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        padding: 50px;
+      }
+
+      #to-app {
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="to-app">跳转App</div>
+    <div id="to-scheme">scheme</div>
+  </body>
+  <script>
+    const toApp = document.getElementById('to-app');
+    toApp.onclick = function () {
+      var default_url =
+        'http://a.app.qq.com/o/simple.jsp?pkgname=com.gelonghui.glhapp';
+      window.location.href = `${default_url}&android_schema=${encodeURI(
+        'guruclub://m.gelonghui.com/stock/hk00700'
+      )}&ios_schema=${encodeURI('guruclub://m.gelonghui.com/stock/hk00700')}`;
+    };
+
+    const toScheme = document.getElementById('to-scheme');
+    toScheme.onclick = function () {
+      var default_url1 = encodeURI('qqmusic://qq.com/media/nextSong?p=%7B%7D');
+      alert(default_url1);
+      window.location.href = default_url1;
+    };
+  </script>
+</html>

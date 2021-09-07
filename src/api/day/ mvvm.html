@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="name">{{name}}</h1>
+    <input type="text" id="input" />
+  </body>
+  <script>
+    window.onload = function () {
+      const ele = document.getElementById('name');
+      const input = document.getElementById('input');
+
+      class Dep {
+        constructor() {
+          this.subscribes = [];
+        }
+
+        add(item) {
+          this.subscribes.push(item);
+        }
+
+        notify() {
+          this.subscribes.forEach((item) => {
+            item.update();
+          });
+        }
+
+        depend() {
+          if (Dep.target) {
+            this.add(Dep.target);
+          }
+        }
+      }
+
+      function observe(obj) {
+        if (!obj || typeof obj !== 'object') return;
+
+        for (let key in obj) {
+          let temp = obj[key];
+          observe(temp);
+          const dep = new Dep();
+          Object.defineProperty(obj, key, {
+            get: function () {
+              dep.depend();
+              return temp;
+            },
+            set: function (value) {
+              if (value === temp) return;
+              temp = value;
+              dep.notify();
+            },
+          });
+        }
+      }
+
+      Dep.target = null;
+
+      class Watcher {
+        constructor(vm, exp, callback) {
+          this.vm = vm;
+          this.exp = exp;
+          this.callback = callback;
+          this.value = this.get();
+        }
+        get = () => {
+          Dep.target = this;
+          const value = this.vm.data[this.exp];
+          Dep.target = null;
+          return value;
+        };
+
+        update = () => {
+          const value = this.vm.data[this.exp];
+          const olddValue = this.value;
+          if (value !== olddValue) {
+            this.callback.call(this.vm, value);
+          }
+        };
+      }
+
+      //   构造函数
+      function Vue(data, ele, exp) {
+        this.data = data;
+        observe(this.data);
+        ele.innerHTML = this.data[exp];
+        new Watcher(this, exp, function (value) {
+          console.log('callback');
+          ele.innerHTML = value;
+        });
+        return this;
+      }
+      // 实例化
+      window.app = new Vue(
+        {
+          name: 'hello world',
+        },
+        ele,
+        'name'
+      );
+
+      input.oninput = function (e) {
+        console.log(e.target.value);
+        app.data.name = e.target.value;
+      };
+    };
+  </script>
+</html>

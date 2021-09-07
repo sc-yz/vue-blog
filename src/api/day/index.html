@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const arr = ['apple', 'orange', 'banana'];
+
+    const arrLike = {
+      0: 'apple',
+      1: 'orange',
+      2: 'banana',
+      length: 3,
+    };
+
+    // 读写
+
+    // 读
+    console.log(arr[0], arrLike[0]);
+
+    // 写
+    arr[0] = 'new apple';
+    arrLike[0] = 'new apple';
+
+    console.log(arr[0], arrLike[0]);
+
+    // 长度
+
+    console.log(arr.length, arrLike.length);
+
+    // 遍历
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log('arr', i, arr[i]);
+    }
+
+    for (let i = 0; i < arrLike.length; i++) {
+      console.log('arrLike', i, arrLike[i]);
+    }
+
+    // 但是不能使用数组的方法
+    // arrLike.push('a'); // error arrLike.push is not a function
+
+    // 需要把类数组对象转成数组
+
+    const d = Array.from(arrLike);
+
+    const a = Array.prototype.map.call(arrLike, function (item) {
+      return item;
+    });
+    const b = Array.prototype.slice.call(arrLike);
+
+    const c = Array.prototype.splice.call(arrLike, 0);
+
+    console.log(a, b, c, d);
+  </script>
+</html>

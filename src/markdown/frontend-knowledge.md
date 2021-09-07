@@ -39,3 +39,12 @@
 ---
 
 ## 架构
+
+## 学习网站
+
+[https://developers.google.com/web](https://developers.google.com/web)
+[https://github.com/jobbole/awesome-javascript-cn](https://github.com/jobbole/awesome-javascript-cn)
+[http://www.ruanyifeng.com/blog/javascript/](http://www.ruanyifeng.com/blog/javascript/)
+[王垠](https://www.yinwang.org/blog-cn/2015/09/19/parser)
+[面试](https://bytedance.feishu.cn/base/app8Ok6k9qafpMkgyRbfgxeEnet?table=tblEnSV2PNAajtWE&view=vewJHSwJVd)
+[https://mlib.wang/](https://mlib.wang/)

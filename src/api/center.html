@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+
+      .box {
+        width: 800px;
+        height: 800px;
+        background: yellowgreen;
+        position: relative;
+      }
+      .context {
+        width: 200px;
+        height: 200px;
+        background: #000;
+        display: inline-block;
+      }
+
+      .gird {
+        align-self: center;
+        justify-self: center;
+      }
+      .css-table {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .absolute-transform {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .absolute-margin {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+      }
+      .absolute-margin-auto {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="context absolute-margin"></div>
+    </div>
+  </body>
+
+  <script>
+    console.log(1, a);
+    {
+      console.log(2, a);
+      a = 1;
+      function a() {}
+      a = 2;
+      function a() {}
+      console.log(3, a); // 输出1
+    }
+    console.log(4, a);
+
+    // var a;
+  </script>
+</html>

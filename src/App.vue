@@ -11,7 +11,18 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      arr: [1, 2, 3, 4, 5, 6],
+    };
+  },
+  mounted() {
+    console.log(22, this);
+  },
+};
+</script>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

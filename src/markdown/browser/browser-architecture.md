@@ -7,10 +7,13 @@ tags:
 date: 2020-06-05 15:33:33
 ---
 
-## 进程（process）和线程（thread）
+## 进程（process）和线程（thread）和协程
 
-进程：
-线程：
+进程：cpu 资源分配的最小单位
+线程：cpu 调度的最小单位
+协程:
+
+[协程](https://www.liaoxuefeng.com/wiki/897692888725344/923057403198272)
 
 ## 单核 CPU 和多核 CPU
 
@@ -28,20 +31,20 @@ date: 2020-06-05 15:33:33
 
 **七个部分构成：**
 
-![](/images/browser.png)
+![浏览器组成](https://waqll.oss-cn-qingdao.aliyuncs.com/blog/browser.png)
 
 - **用户界面 （User Interface）**
   包括地址栏、前进/后退按钮、书签菜单等。除了浏览器主窗口显示的您请求的页面外，其他显示的各个部分都属于用户界面
   用户界面主要包括工具栏、地址栏、前进/后退按钮、书签菜单、可视化页面加载进度、智能下载处理、首选项、打印等。除了浏览器主窗口显示请求的页面之外，其他显示的部分都属于用户界面。
   用户界面还可以与桌面环境集成，以提供浏览器会话管理或与其他桌面应用程序的通信。
 
-- **浏览器引擎 （Browser engine)**
+- **浏览器引擎 （Browser engine）**
   在用户界面和呈现引擎之间传送指令
   浏览器引擎是一个可嵌入的组件，其为渲染引擎提供高级接口。
   浏览器引擎可以加载一个给定的 URI，并支持诸如：前进/后退/重新加载等浏览操作。
   浏览器引擎提供查看浏览会话的各个方面的挂钩，例如：当前页面加载进度、JavaScript alert。
   浏览器引擎还允许查询/修改渲染引擎设置。
-- **渲染引擎 （Rendering engine)**
+- **渲染引擎 （Rendering engine）**
   负责显示请求的内容。如果请求的内容是 HTML，它就负责解析 HTML 和 CSS 内容，并将解析后的内容显示在屏幕上
   渲染引擎为指定的 URI 生成可视化的表示。
   渲染引擎能够显示 HTML 和 XML 文档，可选择 CSS 样式，以及嵌入式内容（如图片）。
@@ -50,10 +53,10 @@ date: 2020-06-05 15:33:33
 - **网络 （Networking）**
   用于网络调用，比如 HTTP 请求。其接口与平台无关，并为所有平台提供底层实现。
   网络系统实现 HTTP 和 FTP 等文件传输协议。 网络系统可以在不同的字符集之间进行转换，为文件解析 MIME 媒体类型。 网络系统可以实现最近检索资源的缓存功能。
-- **JavaScript 解释器 （Javascript interpreter)**
+- **JavaScript 解释器 （Javascript interpreter）**
   用于解析和执行 JavaScript 代码
   JavaScript 解释器能够解释并执行嵌入在网页中的 JavaScript（又称 ECMAScript）代码。 为了安全起见，浏览器引擎或渲染引擎可能会禁用某些 JavaScript 功能，如弹出窗口的打开。
-- **用户界面后端（UI Backend)**
+- **用户界面后端（UI Backend）**
   用于绘制基本的窗口小部件，比如组合框和窗口。其公开了与平台无关的通用接口，而在底层使用操作系统的用户界面方法。
   显示后端提供绘图和窗口原语，包括：用户界面控件集合、字体集合。
 - **数据存储 （Data Persistence）**
@@ -157,8 +160,17 @@ date: 2020-06-05 15:33:33
    - 在 XMLHttpRequest 在连接后是通过浏览器新开一个线程请求
    - 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中。再由 JavaScript 引擎执行。
 
+## Chrome devtool
+
+Elements: 查看 dom 结构，编辑 css 样式，用于测试页面布局和设计页面
+Console: 可以看成是 Javascript shell，能执行 javascript 脚本，通过 console 还能和页面中的 javascript 对象交互
+Sources: 1、查看 Web 应用加载的所有文件 2、编辑 css 和 javascript 文件内容 3、将打乱的 css 文件或者 javascript 文件格式化，4、 支持 javascript 的调试功能 5、设置工作区，将更改的文件保存到本地文件夹
+
 ## 如何理解 js 是单线程的
 
 ## 相关阅读
 
 [浏览器进程](https://juejin.im/post/5a6547d0f265da3e283a1df7)
+[浏览器架构](https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3)
+[浏览器渲染进程](https://zhuanlan.51cto.com/art/201810/585450.htm)
+[渲染](https://juejin.cn/post/6844903476506394638)

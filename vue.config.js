@@ -40,6 +40,12 @@ module.exports = {
       warnings: false,
       errors: true,
     },
+    proxy: {
+      '/api': {
+        target: 'https://test.gelonghui.com',
+        changeOrigin: true,
+      },
+    },
   },
   pwa: {
     name: 'vue-blog',

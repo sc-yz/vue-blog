@@ -28,7 +28,7 @@ module.exports = {
 };
 ```
 
-### 注意点
+### 注意
 
 1. service-worker.js
    本地开发的时候，项目默认会生成 service-worker.js 文件，自定义的 service-worker.js 文件不会生效，如果想在本地测试，修改 service-worker.js 文件名

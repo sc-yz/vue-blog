@@ -22,6 +22,28 @@ const renderer = require('vue-server-renderer').createRenderer();
 
 难点：数据共享
 
+## 同构原理
+
+所谓同构就是采用一套代码，构建双端（server 和 client）逻辑，最大限度的重用代码，不用维护两套代码。
+
+1. 路由同构
+
+   双端使用同一套路由规则，node server 通过 req url path 进行组件的查找，得到需要渲染的组件。
+
+2. 数据同构
+
+   数据预取同构，解决双端如何使用同一套数据请求方法来进行数据请求。
+
+3. 渲染同构
+
+   - 数据注水
+     在服务端将预取的数据注入到浏览器，使浏览器端可以访问到，客户端进行渲染前将数据传入对应的组件即可，这样就保证了 props 的一致。
+
+   - 数据脱水
+
+4. css 过滤
+   服务端本来就不需要渲染 css
+
 ## HTTP 服务性能测试
 
 压力测试工具：
@@ -38,15 +60,15 @@ const renderer = require('vue-server-renderer').createRenderer();
 
 1. node 自带的 profile
 
-```cmd
-node --prof entry.js
-```
+   ```cmd
+   node --prof entry.js
+   ```
 
 2. chrome devtool
 
-```cmd
-node --inspect-brk entry.js
-```
+   ```cmd
+   node --inspect-brk entry.js
+   ```
 
 3. clinic
 
@@ -82,3 +104,4 @@ node --inspect-brk entry.js
 
 [reactDomServer](https://reactjs.org/docs/react-dom-server.html)
 [vueServerRender](https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer#readme)
+[同构原理](https://github.com/yacan8/blog/issues/30)
