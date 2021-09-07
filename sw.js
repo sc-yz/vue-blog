@@ -1,4 +1,4 @@
-importScripts("https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js", "/vue-blog/precache-manifest.8a00e1bfd4b4549c232a5d85178618b1.js");
+importScripts("https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js", "/vue-blog/precache-manifest.d31337eb1cc11bbd729a901e06387dab.js");
 
 // Note: Ignore the error that Glitch raises about workbox being undefined.
 
