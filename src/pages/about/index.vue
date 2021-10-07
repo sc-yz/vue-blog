@@ -6,6 +6,8 @@
     <p ref="message" id="message">{{ message }}</p>
     <p>{{ name.sex }}{{ name.age }}</p>
     <p>${names}</p>
+
+    <textarea name="" v-model="ttt" cols="30" rows="10"></textarea>
     <button @click="changeArr">修改数组</button>
     <button @click="changeArr2">修改数组$set</button>
     <button @click="conso">打印数组</button>
@@ -27,11 +29,17 @@ export default {
         sex: 'male',
       },
       timer: null,
+      ttt: '',
     };
   },
   computed: {
     names() {
       return this.name.sex + this.name.age;
+    },
+  },
+  watch: {
+    ttt(value) {
+      console.log(value);
     },
   },
   methods: {

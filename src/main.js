@@ -1,3 +1,10 @@
+/*
+ * @Author: kian
+ * @Date: 2021-05-05 09:20:18
+ * @LastEditors: kian
+ * @LastEditTime: 2021-09-20 09:33:17
+ * @Description:
+ */
 import Vue from 'vue';
 import App from './App.vue';
 // import './registerServiceWorker';
@@ -20,6 +27,8 @@ import 'github-markdown-css';
 import './assets/css/index.less';
 
 Vue.config.productionTip = false;
+
+console.log(24, router);
 
 const apppp = new Vue({
   router,

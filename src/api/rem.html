@@ -1,0 +1,82 @@
+<!--
+ * @Author: kian
+ * @Date: 2021-09-27 09:31:06
+ * @LastEditors: kian
+ * @LastEditTime: 2021-09-30 16:07:16
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <script src="./flexible.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #root {
+        width: 100%;
+        text-align: center;
+        background: grey;
+      }
+      #title {
+        width: 100vw;
+        height: 200px;
+        background: tan;
+        color: #000;
+        font-size: 1rem;
+        line-height: 200px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <p id="title">Hello World</p>
+    </div>
+    <script>
+      window.onload = function () {
+        // const root = document.getElementById('root');
+        const title = document.getElementById('title');
+        const documentElement = document.documentElement;
+
+        console.log(
+          `根元素的fontSize:${getComputedStyle(documentElement).fontSize}`
+        );
+
+        console.log(`title的fontSize:${getComputedStyle(title).fontSize}`);
+
+        console.log(`window.screen.width:${window.screen.width}`);
+
+        console.log(
+          `window.documentElement.width:${documentElement.clientWidth}`
+        );
+
+        console.log(`设备像素比DPR:${window.devicePixelRatio}`);
+        // console.log(`root的fontSize:${root.style.fontSize}`);
+
+        content = {
+          type: 'normal',
+          content: {
+            body: '', // 正文内容，沿用社区格式
+            images: [], // 图片列表
+            nick: '',
+            quote: {
+              type: '',
+              content: { body: '' },
+            },
+          },
+        };
+      };
+    </script>
+  </body>
+</html>
