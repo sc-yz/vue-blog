@@ -174,3 +174,4 @@ Sources: 1、查看 Web 应用加载的所有文件 2、编辑 css 和 javascrip
 [浏览器架构](https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3)
 [浏览器渲染进程](https://zhuanlan.51cto.com/art/201810/585450.htm)
 [渲染](https://juejin.cn/post/6844903476506394638)
+[navigator](https://stackoverflow.com/questions/14573881/why-does-javascript-navigator-appname-return-netscape-for-safari-firefox-and-ch)
