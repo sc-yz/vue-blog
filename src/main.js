@@ -32,7 +32,9 @@ console.log(24, router);
 
 const apppp = new Vue({
   router,
+
   store,
+
   render: (h) => h(App),
 });
 
