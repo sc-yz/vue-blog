@@ -5,3 +5,26 @@
  * @LastEditTime: 2021-12-04 09:47:14
  * @Description: 
 -->
+<!--调取此代码时会在body标签中拼接script,id为wxActiveCode,使用者需要自己判断使用此代码的场景以获取二维码，如：页面表单提交时调取此代码。此代码允许多次调用-->
+var element=document.getElementById('wxActiveCode');
+<!-- 此参数为接入微信公众号授权功能后获取到的微信企业内的唯一标记-->
+var wxunionid='',
+<!--此参数为手机号-->
+mobile='',
+<!--此参数为授权获取的访客头像-->
+headerImgUrl=''
+<!--此参数为授权获取的访客昵称-->
+name=''
+<!--此参数为授权获取的访客性别 1 男 2 女  微信方返回0时为未知  crm不接收-->
+sex=''
+<!--此参数为活码曝光后的回调方法,需使用者自己定义,如:callback(json),活码曝光后的返回数据格式为json,有三个参数code、msg、url，code为0时，取url参数，需使用者自己定义接收此参数的页面元素来展示二维码-->
+callbackfn='',
+url='http://outmkt.yunduocrm.com/JavaScript/buryCode.js?router_id=3342&activeCodeId=613&wxunionid='+wxunionid+'&mobile='+mobile+'&callbackfn='+callbackfn+'&headerImgUrl='+headerImgUrl+'&name='+name+'&sex='sex'';
+if(null!=element && typeof element!='undefined'){
+element.remove();
+}
+var scriptElement = document.createElement('script');
+var random=Math.floor(Math.random()*10000);
+scriptElement.src=url+'&v='+random;
+scriptElement.id='wxActiveCode';
+document.querySelector('body').appendChild(scriptElement);
