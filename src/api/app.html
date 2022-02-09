@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+ 
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        padding: 50px;
+      }
+
+      #to-app,#to-wx-scheme {
+        width: 200px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="to-app">跳转androind-App</button>
+
+    <button  id="to-wx-scheme">wx-scheme</button>
+  </body>
+  <script>
+    const toApp = document.getElementById('to-app');
+    const getAppUrl = (url) => {
+      const endUrl = url ? url : 'http://m.gelonghui.com';
+      let base64Url = window.btoa(endUrl)
+      let iOSUrl = `https://www.gelonghui.com/redirect/app?url=${base64Url}`;
+      return iOSUrl;
+    };
+
+    toApp.onclick = function () {
+      // var default_url =
+      //   'http://a.app.qq.com/o/simple.jsp?pkgname=com.gelonghui.glhapp';
+      // window.location.href = `${default_url}&android_schema=${encodeURI(
+      //   'guruclub://m.gelonghui.com/stock/hk00700'
+      // )}&ios_schema=${encodeURI('guruclub://m.gelonghui.com/stock/hk00700')}`;
+      // window.location.href = getAppUrl("https://m.gelonghui.com/mobile-activities/portfolio/battle/80");
+      // window.location.href = "guruclub://m.gelonghui.com/mobile-activities/portfolio/battle/80";
+      // window.location.href= getAppUrl("https://www.gelonghui.com/p/507224")
+      window.location.href = "zhihu://"
+    };
+
+    const toScheme = document.getElementById('to-wx-scheme');
+    toScheme.onclick = function () {
+    //   var default_url1 = encodeURI('qqmusic://qq.com/media/nextSong?p=%7B%7D');
+    //   alert(default_url1);
+      window.location.href = "weixin://dl/business/?t=WO3HdKcQ9dp"
+    };
+  </script>
+</html>
