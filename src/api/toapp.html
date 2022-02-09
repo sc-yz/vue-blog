@@ -31,18 +31,24 @@
   <script>
     const toApp = document.getElementById('to-app');
     toApp.onclick = function () {
-      var default_url =
-        'http://a.app.qq.com/o/simple.jsp?pkgname=com.gelonghui.glhapp';
-      window.location.href = `${default_url}&android_schema=${encodeURI(
-        'guruclub://m.gelonghui.com/stock/hk00700'
-      )}&ios_schema=${encodeURI('guruclub://m.gelonghui.com/stock/hk00700')}`;
+      // var default_url =
+      //   'http://a.app.qq.com/o/simple.jsp?pkgname=com.gelonghui.glhapp';
+      // window.location.href = `${default_url}&android_schema=${encodeURI(
+      //   'guruclub://www.gelonghui.com/stock/hk00700'
+      // )}&ios_schema=${encodeURI('guruclub://www.gelonghui.com/stock/hk00700')}`;
+
+      var default_url1 = encodeURI('guruclub://www.gelonghui.com/stock/hk00700');
+     
+      window.location.href = default_url1;
     };
 
     const toScheme = document.getElementById('to-scheme');
     toScheme.onclick = function () {
       var default_url1 = encodeURI('qqmusic://qq.com/media/nextSong?p=%7B%7D');
-      alert(default_url1);
+   
       window.location.href = default_url1;
     };
+
+
   </script>
 </html>
