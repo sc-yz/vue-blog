@@ -88,7 +88,7 @@ function BubbleSort(arr) {
 
   return arr;
 }
-
+// [2,5] [1,4]
 function merge(left, right) {
   let result = [],
     il = 0,

@@ -88,9 +88,9 @@ Queue 一般具有以下常见方法：
 
 ```javascript
 class LinkedList {
-  constructor(){
+  constructor() {
     this.next = null;
-    this.value = ""
+    this.value = '';
   }
 }
 ```
@@ -149,7 +149,14 @@ class LinkedList {
 5. isPresent：判断某个节点在树中是否存在
 6. remove：移除树中的某个节点
 
+## 线性和非线性
+
+线性表： 数据连成一条线的结构
+非线性表：数据之间的关系是非线性的结构
+
 ## 相关阅读
 
 [知乎-时间-空间复杂度](https://zhuanlan.zhihu.com/p/50479555)
 [数据结构](https://mp.weixin.qq.com/s/mMDlxNhm8pc8lccH_8Baxw)
+[http://data.biancheng.net/intro/](http://data.biancheng.net/intro/)
+[oi-wiki](https://oi-wiki.org/ds/linked-list/)

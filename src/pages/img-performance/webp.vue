@@ -8,13 +8,13 @@
 <template>
   <ul>
     <li v-for="(item, index) in lists" :key="index">
-      <picture class="picture">
+      <!-- <picture class="picture">
         <source
           type="image/webp"
           :srcset="item + '?image_process=format,webp'"
-        />
-        <img class="image" :src="item" />
-      </picture>
+        /> -->
+      <img class="image" :src="item + '?image_process=format,webp'" />
+      <!-- </picture> -->
     </li>
   </ul>
 </template>

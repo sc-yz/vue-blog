@@ -17,3 +17,7 @@
 ## [https://github.com/FrontEndGitHub/FrontEndGitHub](https://github.com/FrontEndGitHub/FrontEndGitHub)
 
 ## [https://github.com/wh211212/awesome-kubernetes-cn](https://github.com/wh211212/awesome-kubernetes-cn)
+
+## [http://www.dennisgo.cn/](http://www.dennisgo.cn/)
+
+## [oi-wiki](https://oi-wiki.org/ds/linked-list/)
