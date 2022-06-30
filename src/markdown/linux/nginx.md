@@ -1,0 +1,1 @@
+https://www.myfreax.com/how-to-install-nginx-on-ubuntu-18-04/

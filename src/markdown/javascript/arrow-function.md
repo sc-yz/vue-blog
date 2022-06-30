@@ -37,3 +37,13 @@
      this.innerhtml = 'click btn';
    });
    ```
+
+## 箭头函数没有arguments
+
+##  apply call  bind 改变不了箭头函数的this 指向
+
+## 箭头函数不能用作Generator函数，不能使用yeild关键字
+
+## 相关阅读
+
+[arrow-func](https://juejin.cn/post/6844903805960585224#heading-8)

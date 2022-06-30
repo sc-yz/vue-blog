@@ -27,17 +27,14 @@ import 'github-markdown-css';
 import './assets/css/index.less';
 
 Vue.config.productionTip = false;
+import notify from './components';
 
-console.log(24, router);
-
-const apppp = new Vue({
+Vue.use(notify);
+const app = new Vue({
   router,
 
   store,
 
   render: (h) => h(App),
 });
-
-setTimeout(() => {
-  apppp.$mount('#app');
-}, 1000);
+app.$mount('#app');

@@ -9,6 +9,7 @@
     <div id="blog-container">
       <router-view />
     </div>
+    <div @click="hello">hello</div>
   </div>
 </template>
 <script>
@@ -20,7 +21,11 @@ export default {
       },
     };
   },
-  mounted() {},
+  methods: {
+    hello() {
+      this.$notification(123);
+    },
+  },
 };
 </script>
 <style lang="less">

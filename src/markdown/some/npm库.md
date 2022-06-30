@@ -9,3 +9,9 @@
 ## jest Mocha
 
 ## ws
+
+## react-device-detect
+
+## semver
+
+##  timeago.js

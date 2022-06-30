@@ -15,3 +15,11 @@
 ## rimraf
 
 ## dotenv dotenv-cli
+
+## react-device-detect
+
+## semver
+
+## es-checker
+
+## mitt
