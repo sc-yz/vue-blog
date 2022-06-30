@@ -14,7 +14,6 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dayjs": "^1.10.7",
-    "keycloak-js": "^15.0.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-markdown": "^2.2.4",
@@ -46,8 +45,6 @@
     "lint-staged": "^9.5.0",
     "path": "^0.12.7",
     "prettier": "^2.2.1",
-    "vite": "2",
-    "vite-plugin-vue2": "latest",
     "vue-auto-routing": "^1.0.1",
     "vue-markdown-loader": "^2.4.1",
     "vue-template-compiler": "^2.6.11"

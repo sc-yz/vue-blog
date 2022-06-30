@@ -20,12 +20,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.1
+          # 安装依赖
+      - name: npm install yarn
+        run: npm install yarn -g
       # 安装依赖
-      - name: npm install
-        run: npm install
+      - name: yarn install
+        run: yarn
       # 打包
-      - name: npm build
-        run: npm run build
+      - name: yarn build
+        run: yarn  build
       # 部署到服务器
       - name: Deploy to TengXuYun
         uses: easingthemes/ssh-deploy@v2.1.1
