@@ -15,11 +15,11 @@ jobs:
         # 使用action库  actions/checkout获取源码
         uses: actions/checkout@master
       # 安装Node18
-      - name: use Node.js 18.4.0
+      - name: use Node.js 16.15.1
         # 使用action库  actions/setup-node安装node
         uses: actions/setup-node@v1
         with:
-          node-version: 18.4.0
+          node-version: 16.15.1
       # 安装依赖
       - name: npm install
         run: npm install
