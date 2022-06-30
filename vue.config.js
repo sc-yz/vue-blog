@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  publicPath: '/vue-blog',
+  publicPath: '',
   lintOnSave: process.env.NODE_ENV !== 'production',
   chainWebpack: (config) => {
     config.module
