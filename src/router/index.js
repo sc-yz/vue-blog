@@ -5,7 +5,7 @@ import routes from 'vue-auto-routing';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  base: '/vue-blog',
+  base: '/',
   mode: 'history',
   routes,
 });

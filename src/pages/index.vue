@@ -22,8 +22,7 @@ export default {
         },
         {
           name: '在浏览器输入url之后发生了什么',
-          url:
-            'what-happens-when-you-type-an-url-in-the-browser-and-press-enter',
+          url: 'what-happens-when-you-type-an-url-in-the-browser-and-press-enter',
         },
       ],
     };
@@ -44,6 +43,7 @@ export default {
   },
 };
 </script>
+
 <style lang="less" scoped>
 .home {
   max-width: 1200px;
