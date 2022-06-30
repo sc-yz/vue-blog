@@ -1,25 +1,44 @@
-name: GitHub Actions Build and Deploy Demo
+name: Build app and deploy to aliyun
 on:
+  #监听push操作
   push:
     branches:
-      - main
+      # master分支，你也可以改成其他分支
+      - master
 jobs:
-  build-and-deploy:
+  build:
+    # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
     runs-on: ubuntu-latest
     steps:
+      # 获取源码
       - name: Checkout
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        # 使用action库  actions/checkout获取源码
+        uses: actions/checkout@master
+      # 安装Node13
+      - name: use Node.js 13.2.0
+        # 使用action库  actions/setup-node安装node
+        uses: actions/setup-node@v1
         with:
-          persist-credentials: false
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build
-           cp dist/index.html dist/404.html
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.DEPLOY_KEY }}
-          # REPOSITORY_NAME: sc-yz/sc-yz.github.io
-          BRANCH: gh-pages-test
-          FOLDER: dist
+          node-version: 13.2.0
+      # 安装依赖
+      - name: npm install
+        run: npm install
+      # 打包
+      - name: npm build
+        run: npm run build
+      # 部署到阿里云
+      - name: Deploy to Aliyun
+        uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          # 私钥
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          # scp参数
+          ARGS: "-avzr --delete"
+          # 源目录，编译后生成的文件目录
+          SOURCE: "./dist"
+          # 服务器ip：换成你的服务器IP
+          REMOTE_HOST: "1.117.2.222"
+          # 用户
+          REMOTE_USER: "root"
+          # 目标地址 你在服务器上部署代码的地方
+          TARGET: "/var/www/html"
