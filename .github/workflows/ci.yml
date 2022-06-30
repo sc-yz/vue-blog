@@ -14,24 +14,24 @@ jobs:
       - name: Checkout
         # 使用action库  actions/checkout获取源码
         uses: actions/checkout@master
-      # 安装Node13
-      - name: use Node.js 13.2.0
+      # 安装Node18
+      - name: use Node.js 18.4.0
         # 使用action库  actions/setup-node安装node
         uses: actions/setup-node@v1
         with:
-          node-version: 13.2.0
+          node-version: 18.4.0
       # 安装依赖
       - name: npm install
         run: npm install
       # 打包
       - name: npm build
         run: npm run build
-      # 部署到阿里云
-      - name: Deploy to Aliyun
+      # 部署到服务器
+      - name: Deploy to TengXuYun
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
           # 私钥
-          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.sc_yz_access_token  }}
           # scp参数
           ARGS: '-avzr --delete'
           # 源目录，编译后生成的文件目录
