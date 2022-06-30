@@ -21,8 +21,8 @@ export default {
 };
 </script>
 
-<route-meta>
+<!-- <route-meta>
 {
   "sidebar": false
 }
-</route-meta>
+</route-meta> -->
