@@ -1,7 +1,1 @@
-Function.prototype.apply = function (ctx, ...args) {
-  const context = ctx || window || global;
-  context.fn = this;
-  const result = context.fn(...args);
-  delete context.fn;
-  return result;
-};
+console.log(new Buffer('1234').toString('base64'));

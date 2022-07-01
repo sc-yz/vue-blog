@@ -2,31 +2,18 @@
   <div id="app">
     <header id="nav">
       <div class="nav-container">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about"> About </router-link>
+        <router-link to="/">Vue</router-link> |
+        <router-link to="/">Js</router-link> |
+        <router-link to="/pack">Pack</router-link>
       </div>
     </header>
     <div id="blog-container">
       <router-view />
     </div>
-    <div @click="hello">hello</div>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      a: {
-        name: 'waq',
-      },
-    };
-  },
-  methods: {
-    hello() {
-      this.$notification(123);
-    },
-  },
-};
+export default {};
 </script>
 <style lang="less">
 #app {
