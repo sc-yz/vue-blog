@@ -1,0 +1,18 @@
+第一步：
+公众号：微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+后端：生成签名
+前端：接入jssdk
+
+https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#1
+
+第二步:
+服务号：此功能仅开放给已认证的服务号，服务号绑定“JS接口安全域名”下的网页可使用此标签跳转满足一定条件的App。在使用该标签之前，首先需要前往微信开放平台的管理中心 - 公众账号或小程序详情 - 接口信息 - 网页跳转移动应用 - 关联设置中绑定所需要跳转的App。详细配置规则参考文档《微信内网页跳转 APP 功能》。
+APP：对于extinfo属性，用于携带额外信息，格式自定义，由跳转的 App 自⾏解析处理。对应 iOS 微信 OpenSDK 中的 messageExt 字段（LaunchFromWXReq.message.messageExt），或对应 Android 微信 OpenSDK 中的 messageExt 字段（ShowMessageFromWX.Req.message.messageExt），详细参见文档《App获取开放标签<wx-open-launch-app>中的 extinfo 数据》。
+用于页面中提供一个可跳转指定 App 的按钮。注意：Android平台通过开放标签跳转App，App必须接入微信OpenSDK，详细参见文档《Android微信 OpenSDK 接入指南》。
+前端接入：wx-open-launch-app
+
+
+
+服务号：https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_H5_Launch_APP.html
+APP:https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/APP_GET_EXTINF.html
+https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_Open_Tag.html#1
