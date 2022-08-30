@@ -2,7 +2,7 @@
  * @Author: wanganqing wanganqing0502@163.com
  * @Date: 2022-07-29 16:47:20
  * @LastEditors: wanganqing wanganqing0502@163.com
- * @LastEditTime: 2022-07-29 17:47:22
+ * @LastEditTime: 2022-08-01 09:07:16
  * @FilePath: /vue-blog-github/src/markdown/blog/myblog.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -37,6 +37,7 @@
     分类的相关信息如下：分类ID、分类名称、分类别名、分类描述
     只有管理员可以添加、删除、修改分类。
     分类的作用不仅可以将文章分类，还可以作为博客的菜单。
+    
 - 标签管理
     标签的相关信息如下：标签ID、标签名称、标签别名、标签描述。
     用户发表文章时可以设置标签，标签不仅可以将文章分类，还可以作为博客的菜单。

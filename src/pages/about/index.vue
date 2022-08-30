@@ -1,116 +1,124 @@
-<template>
-  <div>
-    <ul>
-      <li v-for="item in arr" :key="item">{{ item }}</li>
-    </ul>
-    <p ref="message" id="message">{{ message }}</p>
-    <p>{{ name.sex }}{{ name.age }}</p>
-    <p>${names}</p>
+<!--
+ * @Author: wanganqing wanganqing0502@163.com
+ * @Date: 2021-07-09 14:03:43
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-08-30 16:16:57
+ * @FilePath: /vue-blog-github/src/pages/about/index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 
-    <textarea name="" v-model="ttt" cols="30" rows="10"></textarea>
-    <button @click="changeArr">修改数组</button>
-    <button @click="changeArr2">修改数组$set</button>
-    <button @click="conso">打印数组</button>
-    <button @click="changeMessage">修改Mesage</button>
-    <button @click="addNameAge">添加name的age</button>
-    <button @click.once="onceClick">修饰符once</button>
+<template>
+  <div class="draw-lots">
+    <div>{{ showSound ? '录音ing' : '录音' }}</div>
+
+    <div @click="startMp3">录音开始</div>
+
+    <div @click="stopRecorder">结束录音</div>
+
+    <div @click="playRecorder">录音播放</div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Recorder from 'js-audio-recorder';
+import lamejs from 'lamejs';
 export default {
-  delimiters: ['${', '}'],
   data() {
     return {
-      arr: [1, 2, 3, 4, 5, 6],
-      message: 654321,
-      name: {
-        sex: 'male',
-      },
-      timer: null,
-      ttt: '',
+      showSound: false,
+      recorder: null,
     };
   },
-  computed: {
-    names() {
-      return this.name.sex + this.name.age;
-    },
-  },
-  watch: {
-    ttt(value) {
-      console.log(value);
-    },
-  },
+
   methods: {
-    changeArr() {
-      this.arr[0] = 100;
+    startMp3() {
+      this.showSound = true;
+      this.recorder.start().then(
+        (res) => {
+          console.log(res);
+        },
+        (error) => {
+          // 出错了
+          console.log(`${error.name} : ${error.message}`);
+        }
+      );
     },
-    changeArr2() {
-      this.$set(this.arr, 8, 200);
-      console.log(this.arr);
+    // 结束录音
+    stopRecorder() {
+      this.showSound = false;
+      this.recorder.stop();
+      this.recorder.destroy().then(function () {});
     },
-    conso() {
-      console.log(this.arr);
+    // 录音播放
+    playRecorder() {
+      this.recorder.play();
+      // let wav = recorder.getWAVBlob(); //获取 WAV 数据
+      // this.showSound = false;
+      // const mp3Blob = this.convertToMp3(recorder.getWAV());
+      // console.log('录音', mp3Blob);
+      // this.uploadVoice(mp3Blob);
     },
-    changeMessage() {
-      this.message = 123456;
-      console.log(this.$refs.message.textContent);
-    },
-    addNameAge() {
-      this.name.age = 18;
-      console.log(this.name);
-      this.$set(this.name, 'age', 12);
-      console.log(this.name);
-    },
-    onceClick() {
-      console.log('onceClick');
-    },
-    promiseAll(promises) {
-      if (!Array.isArray(promises)) {
-        throw new Error('参数期望是一个数组');
+    //转wav为MP3格式
+    convertToMp3(wavDataView) {
+      // 获取wav头信息
+      const wav = lamejs.WavHeader.readHeader(wavDataView); // 此处其实可以不用去读wav头信息，毕竟有对应的config配置
+      const { channels, sampleRate } = wav;
+      const mp3enc = new lamejs.Mp3Encoder(channels, sampleRate, 128);
+      // 获取左右通道数据
+      const result = this.recorder.getChannelData();
+      const buffer = [];
+
+      const leftData =
+        result.left &&
+        new Int16Array(result.left.buffer, 0, result.left.byteLength / 2);
+      const rightData =
+        result.right &&
+        new Int16Array(result.right.buffer, 0, result.right.byteLength / 2);
+      const remaining = leftData.length + (rightData ? rightData.length : 0);
+
+      const maxSamples = 1152;
+      for (let i = 0; i < remaining; i += maxSamples) {
+        const left = leftData.subarray(i, i + maxSamples);
+        let right = null;
+        let mp3buf = null;
+
+        if (channels === 2) {
+          right = rightData.subarray(i, i + maxSamples);
+          mp3buf = mp3enc.encodeBuffer(left, right);
+        } else {
+          mp3buf = mp3enc.encodeBuffer(left);
+        }
+
+        if (mp3buf.length > 0) {
+          buffer.push(mp3buf);
+        }
       }
 
-      const len = promises.length;
-      let result = new Array(len);
-      let count = 0;
-      return new Promise((resolve, reject) => {
-        promises.forEach((promise, index) => {
-          Promise.resolve(promise).then(
-            (res) => {
-              result[index] = res;
-              count++;
-              if (count === len) {
-                return resolve(result);
-              }
-            },
-            (err) => {
-              return reject(err);
-            }
-          );
-        });
-      });
+      const enc = mp3enc.flush();
+
+      if (enc.length > 0) {
+        buffer.push(enc);
+      }
+
+      return new Blob(buffer, { type: 'audio/mp3' });
     },
   },
-  created() {
-    const dom = document.getElementById('messgae');
-    console.log('message-dom: ', dom);
-    this.$nextTick(() => {
-      const dom1 = document.getElementById('messgae');
-      console.log('message-dom1: ', dom1, this);
+  mounted() {
+    this.recorder = new Recorder({
+      sampleBits: 16, // 采样位数，支持 8 或 16，默认是16
+      sampleRate: 48000, // 采样率，支持 11025、16000、22050、24000、44100、48000，根据浏览器默认值，我的chrome是48000
+      numChannels: 1, // 声道，支持 1 或 2， 默认是1
+      // compiling: false,(0.x版本中生效,1.x增加中)  // 是否边录边转换，默认是false
     });
-
-    // 设置定时器
-    // this.timer = setInterval(() => {
-    //   console.log('123');
-    // }, 1000);
-  },
-  async mounted() {
-    const result = await this.promiseAll([
-      axios.get('/api/live-channels/all/lives?limit=20'),
-      axios.get('/api/chatroom/1/message/v1'),
-    ]);
-    console.log(result);
   },
 };
 </script>
+
+<style scoped lang="less">
+.draw-lots {
+  div {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+</style>
