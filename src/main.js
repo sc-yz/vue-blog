@@ -1,8 +1,8 @@
 /*
  * @Author: kian
  * @Date: 2021-05-05 09:20:18
- * @LastEditors: kian
- * @LastEditTime: 2021-09-20 09:33:17
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-09-01 11:06:59
  * @Description:
  */
 import Vue from 'vue';
