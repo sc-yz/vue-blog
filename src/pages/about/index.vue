@@ -2,7 +2,7 @@
  * @Author: wanganqing wanganqing0502@163.com
  * @Date: 2021-07-09 14:03:43
  * @LastEditors: wanganqing wanganqing0502@163.com
- * @LastEditTime: 2022-09-02 14:44:49
+ * @LastEditTime: 2022-09-02 14:58:09
  * @FilePath: /vue-blog-github/src/pages/about/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -47,10 +47,11 @@ export default {
   methods: {
     startMp3() {
       this.showSound = true;
-      this.speak();
+
       this.recorder.start().then(
         (res) => {
           console.log(res);
+          this.speak();
         },
         (error) => {
           // 出错了
