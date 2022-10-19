@@ -1,0 +1,1 @@
+const TOOLBAR_CONFIG = {};

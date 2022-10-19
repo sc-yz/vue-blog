@@ -1,3 +1,11 @@
+/*
+ * @Author: wanganqing wanganqing0502@163.com
+ * @Date: 2021-07-08 15:41:23
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-09-27 14:20:18
+ * @FilePath: /vue-blog-github/src/api/curry.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 function currying(fn, ...args) {
   const arr = args || [];
   const length = fn.length; // 获取参数的长度
@@ -33,6 +41,3 @@ function add3(a, b, c) {
 // sum(1,2)(3);
 // sum(4);
 // sum(); // 10
-
-const curryadd = currying(add3);
-console.log(curryadd(1)(2));

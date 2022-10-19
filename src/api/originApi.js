@@ -1,3 +1,11 @@
+/*
+ * @Author: wanganqing wanganqing0502@163.com
+ * @Date: 2021-07-08 15:41:24
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-09-27 14:51:37
+ * @FilePath: /vue-blog-github/src/api/originApi.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 实现apply方法
 // con
 Function.prototype.diyApply = function (context, ...args) {
@@ -7,15 +15,15 @@ Function.prototype.diyApply = function (context, ...args) {
   // args 为传入的参数
 };
 // 实现call方法
-Function.prototype.diyCall = function (context, ...args) {};
+// Function.prototype.diyCall = function (context, ...args) {};
 // 实现bind方法;
-Function.prototype.diyBind = function (context, ...args) {};
+// Function.prototype.diyBind = function (context, ...args) {};
 
 // 实现instanceOf
-function instanceOf(left, right) {
-  let left_proto = Object.getPrototypeOf(left);
-  let right_protytype = right.prototype;
-}
+// function instanceOf(left, right) {
+// let left_proto = Object.getPrototypeOf(left);
+// let right_protytype = right.prototype;
+// }
 
 // 实现new 操作符
 
@@ -50,7 +58,7 @@ function _new() {
 // 实现reduce
 
 // 实现 forEach
-function foEach(item) {}
+// function foEach(item) {}
 
 // 实现promise.all
 
@@ -64,9 +72,9 @@ Function.prototype.diyCall = function (context, ...args) {
   return result;
 };
 
-var obj = {
-  value: 1,
-};
+// var obj = {
+//   value: 1,
+// };
 
 function bar(name, age) {
   return {
@@ -86,4 +94,8 @@ Function.prototype.diyApply = function (context, args = []) {
   return result;
 };
 
-Function.prototype.diyBind = function (context, args = []) {};
+Function.prototype.diyBind = function (context, args = []) {
+  return function () {
+    this.diyApply(context, args);
+  };
+};

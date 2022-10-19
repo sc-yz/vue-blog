@@ -15,6 +15,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     quotes: [2, 'single'], //引号类型 `` "" ''
   },
+  ignorePatterns: ['src/api/**', 'src/components/**', 'src/pages/**/*'],
   overrides: [
     {
       files: [

@@ -1,3 +1,11 @@
+/*
+ * @Author: wanganqing wanganqing0502@163.com
+ * @Date: 2021-07-08 15:41:24
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-09-27 17:08:49
+ * @FilePath: /vue-blog-github/src/api/promiseAll.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 function PromiseAll(promises) {
   return new Promise((resolve, reject) => {
     if (!Array.isArray(promises)) {
@@ -45,9 +53,9 @@ Promise.all = function (promises) {
   });
 };
 
-Promise.race = (promises) => {
-  return new Promise((resolve, reject) => {});
-};
+// Promise.race = (promises) => {
+//   return new Promise((resolve, reject) => {});
+// };
 
 function maxRequest(fn, maxNum) {
   return new Promise((resolve, reject) => {
@@ -65,5 +73,28 @@ function maxRequest(fn, maxNum) {
         });
     }
     help(maxNum);
+  });
+}
+
+function pA(arr) {
+  if (Object.prototype.toString.call(arr) !== '[object array]') {
+    return 'arr 需要为一个数组';
+  }
+
+  const length = arr.length;
+  const result = new Array(length);
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i <= length; i++) {
+      Promise.resolve(arr[i])
+        .then((res) => {
+          result[i] = res;
+          if (i === length) {
+            resolve(result);
+          }
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    }
   });
 }

@@ -1,3 +1,11 @@
+/*
+ * @Author: wanganqing wanganqing0502@163.com
+ * @Date: 2021-07-08 15:41:24
+ * @LastEditors: wanganqing wanganqing0502@163.com
+ * @LastEditTime: 2022-09-27 14:32:44
+ * @FilePath: /vue-blog-github/src/api/deepCopy.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 function isObject(obj) {
   return obj !== null && typeof obj === 'object';
 }
@@ -68,3 +76,11 @@ const a = deepClone(obj);
 console.log(a);
 
 // cnblogs.com/craftsman-gao/p/5130567.html
+const obj = {
+  name: 'waq',
+  sex: 'man',
+};
+
+for (const item of obj) {
+  console.log(item);
+}

@@ -105,7 +105,7 @@ runtime，以及伴随的 manifest 数据，主要是指：在浏览器运行过
 ## 相关阅读
 
 [wenbpack](https://www.yuque.com/allenzhoujiawei/kb/zsp9gp)
-[webpack configuration](https://webpack.docschina.org/configuration)
+[webpack ·configuration](https://webpack.docschina.org/configuration)
 [webpack 性能优化](https://juejin.cn/post/6844904084781154318#heading-3)
 [webpackjsonp](https://ljf0113.github.io/2017/12/09/how-webpack-load-js-file/)
 [module-chunk-bundle](https://www.cnblogs.com/skychx/p/webpack-module-chunk-bundle.html)

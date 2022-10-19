@@ -11,12 +11,16 @@
     "inspect": "vue-cli-service inspect > output.js"
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.1.21",
+    "@wangeditor/editor-for-vue": "^1.0.2",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dayjs": "^1.10.7",
     "js-audio-recorder": "^1.0.7",
     "lamejs": "^1.2.1",
+    "random": "^3.0.6",
     "register-service-worker": "^1.7.1",
+    "sanitize-html": "^2.7.2",
     "vconsole": "^3.14.6",
     "vue": "^2.6.11",
     "vue-markdown": "^2.2.4",

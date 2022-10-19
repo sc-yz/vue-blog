@@ -2,7 +2,7 @@
  * @Author: wanganqing wanganqing0502@163.com
  * @Date: 2021-07-09 14:03:43
  * @LastEditors: wanganqing wanganqing0502@163.com
- * @LastEditTime: 2022-09-02 14:58:09
+ * @LastEditTime: 2022-09-07 09:52:23
  * @FilePath: /vue-blog-github/src/pages/about/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,15 +16,6 @@
     <div @click="stopRecorder">结束录音</div>
 
     <div @click="playRecorder">录音播放</div>
-
-    <div class="context" v-html="final_spanInnerHTML"></div>
-
-    <!-- <div @click="speak">点击说话</div>
-    <div v-if="speaking">说话中...</div>
-    <div @click="stop">停止说话</div> -->
-    <!-- <audio
-      src="https://glhtest.oss-cn-hangzhou.aliyuncs.com/peppaPig.mp3"
-    ></audio> -->
   </div>
 </template>
 
@@ -36,11 +27,6 @@ export default {
     return {
       showSound: false,
       recorder: null,
-      final_transcript: '',
-      recognition: null,
-      final_spanInnerHTML: '',
-      interim_spanInnerHTML: '',
-      speaking: false,
     };
   },
 
@@ -51,7 +37,6 @@ export default {
       this.recorder.start().then(
         (res) => {
           console.log(res);
-          this.speak();
         },
         (error) => {
           // 出错了
@@ -63,7 +48,7 @@ export default {
     stopRecorder() {
       this.showSound = false;
       this.recorder.stop();
-      this.stop();
+
       // this.recorder.destroy().then(function () {});
     },
     // 录音播放
@@ -119,81 +104,8 @@ export default {
 
       return new Blob(buffer, { type: 'audio/mp3' });
     },
-    initSpeech() {
-      if (!('webkitSpeechRecognition' in window)) {
-        // upgrade();
-        console.log('需要升级');
-      } else {
-        var recognition = new window.webkitSpeechRecognition();
-        const self = this;
-        recognition.continuous = true;
-        recognition.interimResults = true;
-
-        recognition.onstart = function (e) {
-          console.log('onstart', e);
-        };
-        recognition.onresult = function (event) {
-          console.log('onresult', event);
-          var interim_transcript = '';
-
-          for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-              self.final_transcript += event.results[i][0].transcript;
-            } else {
-              self.interim_transcript += event.results[i][0].transcript;
-            }
-          }
-          self.final_transcript = self.capitalize(self.final_transcript);
-          self.final_spanInnerHTML = self.linebreak(self.final_transcript);
-          self.interim_spanInnerHTML = self.linebreak(interim_transcript);
-        };
-        recognition.onerror = function (event) {
-          console.log('onerror', `${event.error}`, `${event.message}`);
-        };
-        recognition.onend = function (e) {
-          console.log('onend', e);
-        };
-        this.recognition = recognition;
-      }
-    },
-    speak() {
-      this.recognition.interimResults = true;
-      this.recognition.lang = 'cmn-Hans-CN';
-      this.recognition.start();
-      this.speaking = true;
-    },
-    stop() {
-      this.recognition.stop();
-      this.speaking = false;
-    },
-
-    linebreak(s) {
-      var two_line = /\n\n/g;
-      var one_line = /\n/g;
-      return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
-    },
-
-    capitalize(s) {
-      var first_char = /\S/;
-      return s.replace(first_char, function (m) {
-        return m.toUpperCase();
-      });
-    },
-    perssion() {
-      navigator.mediaDevices.getUserMedia(
-        { audio: true },
-        function onSuccess() {
-          console.log('已允许，开启成功');
-        },
-        function onError(err) {
-          console.log(err);
-        }
-      );
-    },
   },
   mounted() {
-    this.perssion();
-    this.initSpeech();
     this.recorder = new Recorder({
       sampleBits: 16, // 采样位数，支持 8 或 16，默认是16
       sampleRate: 48000, // 采样率，支持 11025、16000、22050、24000、44100、48000，根据浏览器默认值，我的chrome是48000
